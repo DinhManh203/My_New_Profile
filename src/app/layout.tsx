@@ -1,11 +1,12 @@
-'use client'
-
+'use client';
 
 import { JetBrains_Mono } from "next/font/google";
 import "./globals.css";
 import Header from "@/components/header/Header";
 import { ClipLoader } from "react-spinners";
 import { useState, useEffect } from "react";
+import PageTransitionEvent from "@/components/pageTransition";
+import StairTransition from "@/components/stairTransition"; // Đổi tên đúng theo convention
 
 const jetbrainsMono = JetBrains_Mono({
   variable: "--font-jetbrainsMono",
@@ -24,7 +25,6 @@ export default function RootLayout({
     const timer = setTimeout(() => {
       setLoading(false);
     }, 2000);
-
     return () => clearTimeout(timer);
   }, []);
 
@@ -32,16 +32,23 @@ export default function RootLayout({
     <html lang="en">
       <body className={`${jetbrainsMono.variable} antialiased`}>
         <Header />
-        {loading ? (
-          //   <div className="spinner-container" style={{ display: 'flex', justifyContent: 'center', paddingTop: '2rem' }}>
-          //   <ClipLoader color="#3b82f6" loading={loading} size={50} />
-          // </div>
-          <div className="spinner-container" style={{ display: 'flex', justifyContent: 'center', marginTop: '1rem' }}>
-            <ClipLoader color="#00ff99" loading={loading} size={50} />
-          </div>
-        ) : (
-          children
-        )}
+        <StairTransition />
+        <PageTransitionEvent>
+          {loading ? (
+            <div
+              className="spinner-container"
+              style={{
+                display: 'flex',
+                justifyContent: 'center',
+                marginTop: '1rem',
+              }}
+            >
+              <ClipLoader color="#00ff99" loading={loading} size={50} />
+            </div>
+          ) : (
+            children
+          )}
+        </PageTransitionEvent>
       </body>
     </html>
   );
