@@ -6,7 +6,7 @@ import Header from "@/components/header/Header";
 import { ClipLoader } from "react-spinners";
 import { useState, useEffect } from "react";
 import PageTransitionEvent from "@/components/pageTransition";
-import StairTransition from "@/components/stairTransition"; // Đổi tên đúng theo convention
+import StairTransition from "@/components/stairTransition";
 
 const jetbrainsMono = JetBrains_Mono({
   variable: "--font-jetbrainsMono",
