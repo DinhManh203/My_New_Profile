@@ -4,6 +4,7 @@ import * as React from "react"
 import * as SheetPrimitive from "@radix-ui/react-dialog"
 import { cn } from "@/lib/utils"
 import { IoMdClose } from "react-icons/io"
+import { VisuallyHidden } from "@radix-ui/react-visually-hidden"
 import type { ComponentPropsWithoutRef } from "react"
 
 const Sheet = (props: ComponentPropsWithoutRef<typeof SheetPrimitive.Root>) => (
@@ -61,10 +62,16 @@ const SheetContent = ({
       )}
       {...props}
     >
+      {/* Accessible Title (hidden visually, but required) */}
+      <VisuallyHidden>
+        <SheetTitle>Sheet Panel</SheetTitle>
+      </VisuallyHidden>
+
       <SheetPrimitive.Close className="absolute right-8 top-8 outline-none transition-opacity">
         <IoMdClose className="text-3xl text-accent" />
         <span className="sr-only">Close</span>
       </SheetPrimitive.Close>
+
       {children}
     </SheetPrimitive.Content>
   </SheetPrimitive.Portal>
