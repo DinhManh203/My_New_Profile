@@ -19,14 +19,15 @@ export default function RootLayout({
 }: Readonly<{
   children: React.ReactNode;
 }>) {
-  const [loading, setLoading] = useState(true);
+  const [initialLoading, setInitialLoading] = useState(true)
 
-  useEffect(() => {
-    const timer = setTimeout(() => {
-      setLoading(false);
-    }, 2000);
-    return () => clearTimeout(timer);
-  }, []);
+useEffect(() => {
+  const timer = setTimeout(() => {
+    setInitialLoading(false)
+  }, 1000)
+  return () => clearTimeout(timer)
+}, [])
+
 
   return (
     <html lang="en">
@@ -34,7 +35,7 @@ export default function RootLayout({
         <Header />
         <StairTransition />
         <PageTransitionEvent>
-          {loading ? (
+          {initialLoading ? (
             <div
               className="spinner-container"
               style={{
@@ -43,7 +44,7 @@ export default function RootLayout({
                 marginTop: '1rem',
               }}
             >
-              <ClipLoader color="#00ff99" loading={loading} size={50} />
+              <ClipLoader color="#00ff99" loading={initialLoading} size={50} />
             </div>
           ) : (
             children

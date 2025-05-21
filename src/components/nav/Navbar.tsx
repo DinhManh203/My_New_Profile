@@ -9,7 +9,6 @@ import { ClipLoader } from 'react-spinners'
 const Links = [
     { name: 'home', path: '/' },
     { name: 'services', path: '/services' },
-    { name: 'resume', path: '/resume' },
     { name: 'work', path: '/work' },
     { name: 'contact', path: '/contact' },
 ]
@@ -20,7 +19,7 @@ const Navbar = () => {
 
     useEffect(() => {
         if (loading) {
-            const timer = setTimeout(() => setLoading(false), 1000)
+            const timer = setTimeout(() => setLoading(false), 500)
             return () => clearTimeout(timer)
         }
     }, [pathname])
