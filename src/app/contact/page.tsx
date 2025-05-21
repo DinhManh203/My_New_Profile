@@ -14,7 +14,7 @@ import {
   SelectValue,
 } from "@/components/ui/select";
 
-import { FaPhoneAlt, FaEnvelope, FaMapMarkedAlt } from "react-icons/fa"
+import { FaPhoneAlt, FaEnvelope, FaMapMarkedAlt } from "react-icons/fa";
 import { motion } from "framer-motion";
 
 const info = [
@@ -33,7 +33,7 @@ const info = [
     title: "Address",
     description: "123 Main St, City, Country",
   },
-]
+];
 
 const Contact = () => {
   return (
@@ -49,7 +49,7 @@ const Contact = () => {
         <div className="flex flex-col xl:flex-row gap-[30px]">
           <div className="xl:h-[54%] order-2 xl:order-none">
             <form className="flex flex-col gap-6 p-10 bg-[#27272c] rounded-xl" action="">
-              <h3 className="text-4xl text-accent">Let's work together</h3>
+              <h3 className="text-4xl text-accent">Let&apos;s work together</h3>
               <p className="text-white/60">
                 If you have any questions, feedback, or need assistance, feel free to reach out to us. Our team is here to help and will get back to you as soon as possible.
               </p>
@@ -96,7 +96,7 @@ const Contact = () => {
                       <h3 className="text-xl">{item.description}</h3>
                     </div>
                   </li>
-                )
+                );
               })}
             </ul>
           </div>
@@ -104,6 +104,6 @@ const Contact = () => {
       </div>
     </motion.section>
   );
-}
+};
 
 export default Contact;

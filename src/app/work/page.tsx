@@ -1,4 +1,4 @@
-"use client"
+"use client";
 
 import { motion } from 'framer-motion'
 import React, { useState } from 'react'
@@ -17,15 +17,9 @@ const projects = [
     title: 'SutieGang',
     description: 'A web application that allows users to create and manage their own online store. It provides a user-friendly interface for managing products, orders, and customers.',
     stack: [
-      {
-        name: 'Html5'
-      },
-      {
-        name: 'Css3'
-      },
-      {
-        name: 'Css3'
-      }
+      { name: 'Html5' },
+      { name: 'Css3' },
+      { name: 'Css3' }
     ],
     image: '/assets/work/thumb1.png',
     live: '',
@@ -37,15 +31,9 @@ const projects = [
     title: 'SutieGang',
     description: 'A web application that allows users to create and manage their own online store. It provides a user-friendly interface for managing products, orders, and customers.',
     stack: [
-      {
-        name: 'React'
-      },
-      {
-        name: 'Nextjs'
-      },
-      {
-        name: 'Tailwindcss'
-      }
+      { name: 'React' },
+      { name: 'Nextjs' },
+      { name: 'Tailwindcss' }
     ],
     image: '/assets/work/thumb2.png',
     live: '',
@@ -57,15 +45,9 @@ const projects = [
     title: 'SutieGang',
     description: 'A web application that allows users to create and manage their own online store. It provides a user-friendly interface for managing products, orders, and customers.',
     stack: [
-      {
-        name: '1'
-      },
-      {
-        name: '2'
-      },
-      {
-        name: '3'
-      }
+      { name: '1' },
+      { name: '2' },
+      { name: '3' }
     ],
     image: '/assets/work/thumb3.png',
     live: '',
@@ -73,11 +55,10 @@ const projects = [
   },
 ]
 
-const page = () => {
-
+const Page = () => {
   const [project, setProject] = useState(projects[0]);
 
-  const handleSlideChange = (swiper: { activeIndex: any }) => {
+  const handleSlideChange = (swiper: { activeIndex: number }) => {
     const currentIndex = swiper.activeIndex;
     setProject(projects[currentIndex]);
   }
@@ -95,40 +76,38 @@ const page = () => {
               <h2>{project.category} Project</h2>
               <p className='text-white/60'>{project.description}</p>
               <ul className='flex gap-4'>
-                {project.stack.map((item,index) => {
-                  return (
-                    <li key={index} className='text-cl text-accent'>
-                      {item.name}
-                      {index !== project.stack.length - 1 && ","}
-                    </li>
-                  )
-                })}
+                {project.stack.map((item, index) => (
+                  <li key={index} className='text-cl text-accent'>
+                    {item.name}
+                    {index !== project.stack.length - 1 && ","}
+                  </li>
+                ))}
               </ul>
               <div className='border border-white/20'></div>
               <div className='flex items-center gap-4'>
                 <Link href={project.live}>
-                <TooltipProvider delayDuration={100}>
-                  <Tooltip>
-                    <TooltipTrigger className='w-[50px] h-[50px] rounded-full bg-white/5 flex justify-center items-center group'>
-                      <BsArrowUpRight className='text-white text-xl group-hover:text-accent' />
-                    </TooltipTrigger>
-                    <TooltipContent>
-                      <p>Live Project</p>
-                    </TooltipContent>
-                  </Tooltip>
+                  <TooltipProvider delayDuration={100}>
+                    <Tooltip>
+                      <TooltipTrigger className='w-[50px] h-[50px] rounded-full bg-white/5 flex justify-center items-center group'>
+                        <BsArrowUpRight className='text-white text-xl group-hover:text-accent' />
+                      </TooltipTrigger>
+                      <TooltipContent>
+                        <p>Live Project</p>
+                      </TooltipContent>
+                    </Tooltip>
                   </TooltipProvider>
                 </Link>
 
                 <Link href={project.github}>
-                <TooltipProvider delayDuration={100}>
-                  <Tooltip>
-                    <TooltipTrigger className='w-[50px] h-[50px] rounded-full bg-white/5 flex justify-center items-center group'>
-                      <BsGithub className='text-white text-xl group-hover:text-accent' />
-                    </TooltipTrigger>
-                    <TooltipContent>
-                      <p>Github</p>
-                    </TooltipContent>
-                  </Tooltip>
+                  <TooltipProvider delayDuration={100}>
+                    <Tooltip>
+                      <TooltipTrigger className='w-[50px] h-[50px] rounded-full bg-white/5 flex justify-center items-center group'>
+                        <BsGithub className='text-white text-xl group-hover:text-accent' />
+                      </TooltipTrigger>
+                      <TooltipContent>
+                        <p>Github</p>
+                      </TooltipContent>
+                    </Tooltip>
                   </TooltipProvider>
                 </Link>
               </div>
@@ -136,25 +115,28 @@ const page = () => {
           </div>
 
           <div className='w-full xl:w-[50%]'>
-            <Swiper spaceBetween={30} slidesPerView={1} className='xl:h-[520px] mb-12' onSlideChange={handleSlideChange}>
-              {projects.map((project, index) => {
-                return (
-                  <SwiperSlide key={index} className='w-full h-[460px]'>
-                    <div className='h-[460px] relative group flex justify-center items-center bg-pink-50/20 z-10'>
-
-                      <div className='absolute bg-black top-0 bottom-0 ư-full h-full'></div>
-
-                      <div className='relative w-full h-full'>
-                        <Image src={project.image} alt={project.title} fill className='object-cover' quality={100} />
-                      </div>
+            <Swiper
+              spaceBetween={30}
+              slidesPerView={1}
+              className='xl:h-[520px] mb-12'
+              onSlideChange={handleSlideChange}
+            >
+              {projects.map((project, index) => (
+                <SwiperSlide key={index} className='w-full h-[460px]'>
+                  <div className='h-[460px] relative group flex justify-center items-center bg-pink-50/20 z-10'>
+                    <div className='absolute bg-black top-0 bottom-0 w-full h-full'></div>
+                    <div className='relative w-full h-full'>
+                      <Image src={project.image} alt={project.title} fill className='object-cover' quality={100} />
                     </div>
-                  </SwiperSlide>
-                )
-              })}
+                  </div>
+                </SwiperSlide>
+              ))}
 
-              <WorkSliderBtns 
+              <WorkSliderBtns
                 containerStyles="flex gap-2 absolute right-0 bottom-[calc(50%_-_22px)] xl:bottom-0 z-20 w-full justify-between xl:w-max xl:justify-none"
-                btnStyles="bg-accent hover:bg-accent-hover text-primary text-[22px] w-[44px] h-[44px] flex justify-center items-center transition-all" iconStyles={undefined}                />
+                btnStyles="bg-accent hover:bg-accent-hover text-primary text-[22px] w-[44px] h-[44px] flex justify-center items-center transition-all"
+                iconStyles={undefined}
+              />
             </Swiper>
           </div>
         </div>
@@ -163,4 +145,4 @@ const page = () => {
   )
 }
 
-export default page
+export default Page;
